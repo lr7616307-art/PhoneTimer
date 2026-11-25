@@ -7,7 +7,12 @@ import android.content.Intent;
 public class BootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())
+        String action = intent.getAction();
+        // Phone restarted, or phone unlocked while the app was cleared from memory.
+        if ((Intent.ACTION_BOOT_COMPLETED.equals(action)
+                || Intent.ACTION_USER_PRESENT.equals(action))
+                && LockService.instance == null
+                && Engine.current == null
                 && context.getSharedPreferences(Engine.PREFS, Context.MODE_PRIVATE)
                 .getBoolean(Engine.KEY_RUNNING, false)) {
             try {
