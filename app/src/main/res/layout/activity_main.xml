@@ -99,6 +99,26 @@
             android:layout_height="wrap_content"
             android:text="Turn on auto-lock" />
 
+        <TextView
+            android:id="@+id/tvBackup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Backup: allow floating circle" />
+
+        <Button
+            android:id="@+id/btnAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Backup: allow auto-lock" />
+
         <Button
             android:id="@+id/btnBattery"
             android:layout_width="match_parent"
