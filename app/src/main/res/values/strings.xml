@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Phone Timer</string>
+    <string name="accessibility_description">Lets Phone Timer lock your screen when your chosen time is up. It does not read or collect anything on your screen.</string>
+</resources>

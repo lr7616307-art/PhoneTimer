@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone Timer"
+            android:textColor="#3F51B5"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Shows how long your phone has been awake and locks it when time is up."
+            android:textColor="#555555"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvLimit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Auto-lock after: 5 min"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/seekLimit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1 min"
+                android:textColor="#777777" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 hour"
+                android:textColor="#777777" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Permissions (one time)"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvOverlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Allow floating circle" />
+
+        <TextView
+            android:id="@+id/tvNotif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnNotif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Allow notifications" />
+
+        <TextView
+            android:id="@+id/tvLock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnLock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Turn on auto-lock" />
+
+        <Button
+            android:id="@+id/btnToggle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Start" />
+    </LinearLayout>
+</ScrollView>
