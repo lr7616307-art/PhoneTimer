@@ -52,6 +52,7 @@ class Engine {
     static final String KEY_HEART = "heartbeat";
     static final String KEY_X = "bubble_x";
     static final String KEY_Y = "bubble_y";
+    static final String KEY_BUBBLE = "show_bubble";  // show the floating circle?
 
     static final int NOTIF_ID = 1;
     private static final String CHANNEL = "timer";
@@ -196,6 +197,9 @@ class Engine {
             endSession();
         }
 
+        if (!prefs.getBoolean(KEY_BUBBLE, true) && bubble != null) {
+            hideBubble();
+        }
         if (active) {
             tickActive(now);
         }
@@ -309,7 +313,9 @@ class Engine {
     // ---- floating circle ----
 
     private void showBubble() {
-        if (bubble != null || !host.canShowOverlay()) return;
+        if (bubble != null || !prefs.getBoolean(KEY_BUBBLE, true) || !host.canShowOverlay()) {
+            return;
+        }
 
         bubble = new TextView(ctx);
         bubble.setBackgroundResource(R.drawable.circle_bg);

@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ public class MainActivity extends Activity {
     private SharedPreferences prefs;
     private TextView tvLimit, tvNotif, tvLock, tvBackup;
     private Button btnToggle;
+    private Switch swBubble;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,14 @@ public class MainActivity extends Activity {
         tvBackup = findViewById(R.id.tvBackup);
         btnToggle = findViewById(R.id.btnToggle);
         SeekBar seek = findViewById(R.id.seekLimit);
+
+        swBubble = findViewById(R.id.swBubble);
+        swBubble.setChecked(prefs.getBoolean(Engine.KEY_BUBBLE, true));
+        swBubble.setOnCheckedChangeListener((button, on) -> {
+            prefs.edit().putBoolean(Engine.KEY_BUBBLE, on).apply();
+            Engine.kickNow();
+            WidgetProvider.refresh(this);
+        });
 
         // 1..60 minutes
         seek.setMax(59);
@@ -157,7 +167,9 @@ public class MainActivity extends Activity {
                 + (Settings.canDrawOverlays(this) ? "✔" : "✘") + " floating circle    "
                 + (adminOk ? "✔" : "✘") + " auto-lock");
 
+        swBubble.setChecked(prefs.getBoolean(Engine.KEY_BUBBLE, true));
         btnToggle.setText(prefs.getBoolean(Engine.KEY_RUNNING, false)
                 ? "Turn OFF Phone Timer" : "Turn ON Phone Timer");
+        WidgetProvider.refresh(this);
     }
 }
